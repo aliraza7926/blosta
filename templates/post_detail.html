@@ -3,5 +3,20 @@
     
     <h2>{{post.title}}</h2>
     <p>{{post.text}}</p>
+
     
+    <ul>
+        {% for review in post.reviews.all %}
+       <li>
+           <p>{{review.author}}</p>
+            <br>
+           <p>{{review.review}}</p>
+       </li> 
+       {% endfor %}
+    </ul>
+
+    <form action="" method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">senda</button>
+    </form>
 {% endblock content %}
