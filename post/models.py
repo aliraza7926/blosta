@@ -10,5 +10,10 @@ class Post(models.Model):
         return reverse('home')
 
 class Review(models.Model):
+    post=models.ForeignKey(
+        Post, 
+        on_delete=models.CASCADE,
+        related_name='review'
+    )
     author=models.CharField(max_length=40)
     review=models.CharField(max_length=250)
